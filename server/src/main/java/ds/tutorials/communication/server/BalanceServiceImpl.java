@@ -14,6 +14,8 @@ public class BalanceServiceImpl extends BalanceServiceGrpc.BalanceServiceImplBas
     String accountId = request.getAccountId();
     System.out.println("Request received..");
     double balance = getAccountBalance(accountId);
+
+    // then we need to send a check balance response according to grpc and build and send the response
     CheckBalanceResponse response = CheckBalanceResponse
       .newBuilder()
       .setBalance(balance)
@@ -23,6 +25,7 @@ public class BalanceServiceImpl extends BalanceServiceGrpc.BalanceServiceImplBas
     responseObserver.onCompleted();
   }
   private double getAccountBalance(String accountId) {
+    // your business logic goes here
     System.out.println("Checking balance for Account " + accountId);
     return new Random().nextDouble() * 10000;
   }
