@@ -80,6 +80,11 @@ name of your client’s main class
 ```
 
 - Start the client
+  
 ```sh
 > java -jar communication-client-1.0-SNAPSHOT-jar-with-dependencies.jar localhost 11436
 ```
+
+## Final Output
+
+<img src="./docs/1.png">
