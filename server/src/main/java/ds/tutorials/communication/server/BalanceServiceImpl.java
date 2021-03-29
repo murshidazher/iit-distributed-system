@@ -11,7 +11,8 @@ public class BalanceServiceImpl extends BalanceServiceGrpc.BalanceServiceImplBas
   public void checkBalance(ds.tutorial.communication.grpc.generated.CheckBalanceRequest request,
                            io.grpc.stub.StreamObserver<ds.tutorial.communication.grpc.generated.CheckBalanceResponse> responseObserver) {
 
-    String accountId = request.getAccountId(); System.out.println("Request received..");
+    String accountId = request.getAccountId();
+    System.out.println("Request received..");
     double balance = getAccountBalance(accountId);
     CheckBalanceResponse response = CheckBalanceResponse
       .newBuilder()
