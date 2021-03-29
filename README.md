@@ -4,10 +4,11 @@ Distributed system using
 - java
 - gRPC
 - maven
-- zookeeper
+- zookeeper - Centralized server for distributed coordination of services
 - etcd
 
-## Generate Server Stub
+## gRPC
+### Generate Server Stub
 
 - We generated server stub is the grpc code and we need grpc libraries to work for it. We need to import the dependent packages for gRPC using maven.
 - maven will fetch the libraries which are under `<dependencies>` tag.
@@ -52,7 +53,7 @@ inside the target folder
 > java -jar communication-server-1-0-SNA
 ```
 
-## Implementing a Client
+### Implementing a Client
 
 - Create a new maven project, `file > new > project > maven > communication-client` inside client folder.
 - Client can be in any other language.
@@ -85,6 +86,24 @@ name of your client’s main class
 > java -jar communication-client-1.0-SNAPSHOT-jar-with-dependencies.jar localhost 11436
 ```
 
-## Final Output
+### Final Output
 
 <img src="./docs/1.png">
+
+## ZooKeeper
+
+- We will be build a distributed lock with apache zookeeper. Zookeeper itself is a distributed server where we can connect to it and execute it.
+- Replicated DB - will persist the state in memory.
+- Request Processor - is only active in the master
+- Atomic Broadcast - it will broadcast the changes to other nodes.
+  
+- A node in the system is represented by a location in zookeeper hierarchical namespace which is reffered as `znode`.
+- `znode` keeps track of the data and the state changes of a given node.
+- `znode` are organized into a hierarchical namespace.
+- Ephemeral node:
+- Ephemeral Sequential:
+- Persistent node
+
+## etcd
+
+
