@@ -30,15 +30,18 @@ public class ZooKeeperClient {
     return (nodeStat != null);
   }
 
+  // delete a node
   public void delete(String path) throws KeeperException, InterruptedException {
     zooKeeper.delete(path, -1);
   }
 
+  // znode (root path) get a list of child nodes attached to it and the resource is accessed based on this order
   public List<String> getChildrenNodePaths (String root) throws KeeperException, InterruptedException {
     zooKeeper.getState().toString();
     return zooKeeper.getChildren(root, false);
   }
 
+  // adding a watch will lookout for changes, watch true will call the callback when we create the zookeeper client
   public void addWatch(String path) throws KeeperException, InterruptedException {
     zooKeeper.exists(path, true);
   }
