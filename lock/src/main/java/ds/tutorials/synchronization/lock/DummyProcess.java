@@ -28,6 +28,7 @@ public class DummyProcess {
     }
   }
 
+  // simulate making some processes for a time period
   private static void accessSharedResource() throws
     InterruptedException {
     Random r = new Random();
@@ -35,7 +36,7 @@ public class DummyProcess {
     System.out.println("Accessing critical section. Time remaining : " + sleepDuration + " seconds.");
     Thread.sleep(sleepDuration * 1000);
   }
-  
+
   private static String getCurrentTimeStamp() {
     return timeFormat.format(new Date(System.currentTimeMillis()));
   }
