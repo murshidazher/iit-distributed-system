@@ -29,40 +29,43 @@ public class DistributedLock implements Watcher {
   }
 
   public DistributedLock(String lockName) throws IOException, KeeperException, InterruptedException {
-    this.lockPath = "/" + lockName;
+    this.lockPath = "/" + lockName; // lockpath should always start with /
     client = new ZooKeeperClient(zooKeeperUrl, 5000, this);
-    startFlag.await();
+    startFlag.await(); // it will hold the lock until zookeeper tells that the node is created
     if (client.CheckExists(lockPath) == false) {
-      createRootNode();
+      createRootNode(); // if no root path create the root node for lock, executed only once
     }
     createChildNode();
   }
 
   private void createRootNode() throws InterruptedException, UnsupportedEncodingException, KeeperException {
-    lockPath = client.createNode(lockPath, false,
-      CreateMode.PERSISTENT);
+    // root node with mode being PERSISTENT node.
+    lockPath = client.createNode(lockPath, false, CreateMode.PERSISTENT);
     System.out.println("Root node created at " + lockPath);
   }
 
   private void createChildNode() throws InterruptedException, UnsupportedEncodingException, KeeperException {
+    // |- /disLock                <- lock path (if the lock name is distributed lock)
+    // |- /disLock/lp_0000000003  <- lock process path `/` indicates a child, ephimerical will have 10 digits appended to it
     childPath = client.createNode(lockPath + lockProcessPath, false, CreateMode.EPHEMERAL_SEQUENTIAL);
     System.out.println("Child node created at " + childPath);
   }
 
+  // check whether the node is the smallest in the sequence
   public void acquireLock() throws KeeperException, InterruptedException {
     String smallestNode = findSmallestNodePath();
+    // if the smallestNode path equal to the this node path
     if (smallestNode.equals(childPath)) {
       isAcquired = true;
     } else {
       do {
         System.out.println("Lock is currently acquired by node " + smallestNode + " .. hence waiting..");
-        eventReceivedFlag = new
-          CountDownLatch(1);
+        eventReceivedFlag = new CountDownLatch(1);
         watchedNode = smallestNode;
         client.addWatch(smallestNode);
-        eventReceivedFlag.await();
+        eventReceivedFlag.await(); // wait until the current lock using node is deleted
         smallestNode = findSmallestNodePath();
-      } while (!smallestNode.equals(childPath));
+      } while (!smallestNode.equals(childPath)); // see am I the smallest now else do again
 
       isAcquired = true;
     }
@@ -98,6 +101,7 @@ public class DistributedLock implements Watcher {
         startFlag.countDown();
       }
     }
+    // to see if a node is deleted
     if (Event.EventType.NodeDeleted.equals(type)){
       if (watchedNode != null && eventReceivedFlag
         != null && event.getPath().equals(watchedNode)){

@@ -127,6 +127,7 @@ implementation is as follows
 4. After accessing the resource the process releases the lock by deleting the znode it
 created.
 
+- `DummyProcess` is the class which completes for this lock
 ## etcd
 
 
