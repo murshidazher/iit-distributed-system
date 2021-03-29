@@ -91,7 +91,9 @@ name of your client’s main class
 <img src="./docs/1.png">
 
 ## ZooKeeper
->  We will be build a distributed lock with apache zookeeper. 
+
+> We will be build a distributed lock with apache zookeeper.
+
 - Zookeeper itself is a distributed server where we can connect to it and execute it.
 - Replicated DB - will persist the state in memory.
 - Request Processor - is only active in the master
@@ -109,7 +111,21 @@ name of your client’s main class
 ZooKeeper client API.
 
 - Just like we used gRPC client libraries to use grpc, we need to use zookeeper dependencies to use zookeeper api.
-- Watchers are like observable that observes the changes that are happening to the znodes
+- Watchers are like observable that observes the changes that are happening to the znodes.
+
+### Creating a Distributed Lock
+
+- For a given resource there should be a lock, this is represented by a `persistent` znode. This is persistent because the lock needs too be there regardless of whether the some access it or not.
+- zookeeper is like a centralized algorithm. If any process needs to get the resourse the process create a chid node under the znode (lock). This node is of type `ephimeral sequential`. There is no point of keeping the child node if the process is not there.
+- The lock is distributed to the child nodes by the least sequence number.
+
+This class implements a distributed lock using znodes in ZooKeeper. The logic of this
+implementation is as follows
+1. A root znode is created to represent a given lock.
+2. If a process intends to a get the lock it will create a child sequential znode under the root node
+3. When the process attempts to acquire the lock it will check if the requesting process has the lowest sequential number. If yes, the lock will be granted, if not the process will wait until it becomes the lowest.
+4. After accessing the resource the process releases the lock by deleting the znode it
+created.
 
 ## etcd
 
