@@ -91,8 +91,8 @@ name of your client’s main class
 <img src="./docs/1.png">
 
 ## ZooKeeper
-
-- We will be build a distributed lock with apache zookeeper. Zookeeper itself is a distributed server where we can connect to it and execute it.
+>  We will be build a distributed lock with apache zookeeper. 
+- Zookeeper itself is a distributed server where we can connect to it and execute it.
 - Replicated DB - will persist the state in memory.
 - Request Processor - is only active in the master
 - Atomic Broadcast - it will broadcast the changes to other nodes.
@@ -103,6 +103,13 @@ name of your client’s main class
 - Ephemeral node:
 - Ephemeral Sequential:
 - Persistent node
+
+- What we are trying to build is a distributed lock. This lock will allow two processes to access a shared resource with mutual exclusion.
+- In order to communicate with ZooKeeper we need to create a client that makes use of
+ZooKeeper client API.
+
+- Just like we used gRPC client libraries to use grpc, we need to use zookeeper dependencies to use zookeeper api.
+- Watchers are like observable that observes the changes that are happening to the znodes
 
 ## etcd
 
