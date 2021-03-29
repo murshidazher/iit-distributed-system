@@ -5,6 +5,7 @@ ds/tutorial/communication/grpc/generated/CheckBalanceResponse.class
 ds/tutorial/communication/grpc/generated/BalanceServiceGrpc$BalanceServiceBaseDescriptorSupplier.class
 ds/tutorial/communication/grpc/generated/CheckBalanceRequestOrBuilder.class
 ds/tutorial/communication/grpc/generated/CheckBalanceRequest.class
+ds/tutorials/communication/client/CheckBalanceServiceClient.class
 ds/tutorial/communication/grpc/generated/BalanceServiceGrpc$BalanceServiceFutureStub.class
 ds/tutorial/communication/grpc/generated/BalanceServiceGrpc$BalanceServiceBlockingStub.class
 ds/tutorial/communication/grpc/generated/CheckBalanceResponse$1.class

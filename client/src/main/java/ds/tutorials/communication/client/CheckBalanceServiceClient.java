@@ -22,6 +22,7 @@ public class CheckBalanceServiceClient {
     }
     host = args[0];
     port = Integer.parseInt(args[1].trim());
+    // We create check balance service client using grpc
     CheckBalanceServiceClient client = new CheckBalanceServiceClient(host,
       port);
     client.initializeConnection();
@@ -34,10 +35,11 @@ public class CheckBalanceServiceClient {
   private void initializeConnection () {
     System.out.println("Initializing Connecting to server at " + host + ":" +
       port);
+    // we need to use ManagedChannelBuilder and create the connection
     channel = ManagedChannelBuilder.forAddress("localhost", port)
-      .usePlaintext()
-      .build();
-    clientStub = BalanceServiceGrpc.newBlockingStub(channel);
+      .usePlaintext() // this uses plaintext else we can use keystore and encrypt the connection
+      .build(); // build the channel
+    clientStub = BalanceServiceGrpc.newBlockingStub(channel); // we use the client stub connected to the channel
   }
   private void closeConnection() {
     channel.shutdown();
@@ -53,6 +55,7 @@ public class CheckBalanceServiceClient {
         .newBuilder()
         .setAccountId(accountId)
         .build();
+      // blocking stub and we will get the response
       CheckBalanceResponse response = clientStub.checkBalance(request);
       System.out.printf("My balance is " + response.getBalance() + " LKR");
       Thread.sleep(1000);
