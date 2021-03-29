@@ -127,7 +127,23 @@ implementation is as follows
 4. After accessing the resource the process releases the lock by deleting the znode it
 created.
 
-- `DummyProcess` is the class which completes for this lock
+- `DummyProcess` is the class which completes for this lock.
+- Add build dependencies and build using `mvn clean install`.
+  
+- Now we can start the zookeeper
+
+```sh
+$ /bin/zkServer.sh start conf/zoo_sample.cfg #or
+$ zkServer start
+```
+
+### Final Output
+
+- Uses three clients
+
+<img src="./docs/2.png">
+
+
 ## etcd
 
 
