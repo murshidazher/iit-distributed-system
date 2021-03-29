@@ -1,2 +1,8 @@
-# iit-distributed-system
-distributed systems lab using Java and RPC
+# [java-distributed-system]()
+
+Distributed system using
+- java
+- gRPC
+- maven
+- zookeeper
+- etcd
