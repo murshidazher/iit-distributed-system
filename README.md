@@ -5,7 +5,7 @@ Distributed system using
 - gRPC
 - maven
 - zookeeper - Centralized server for distributed coordination of services
-- etcd
+- etcd - Utilize etcd as a simple name service which allows services to register the address details of the service, and consumers to discover the location of the service.
 
 ## gRPC
 ### Generate Server Stub
@@ -144,6 +144,24 @@ $ zkServer start
 <img src="./docs/2.png">
 
 
+## Name Servers
+
+- We use location independent names not like address which is location dependent and they can change overtime.
+- One identifier can only have one identifier, and the identifier never changed or re-used (eg. MAC address)
+- We should be able to give a name and be able to resolve it.
+- Naive approach is to have a name-address mapping in a table.
+- Actually names consists of several parts which are resolved recursively by a set of servers
+- Name resolution done hand-in-hand with message routing
+- DHT - Distributed Hash Table.
+- Attribute based searching by giving the attributes like how it looks like to search for it, this is called a Directory Service.
+- They use the subject, predicate and object.
+- LDAP is an active directory and it uses the attribute based searching. Each record is made up of collection of [attribute, value] pairs.
+- Directory Information Base (DIB): collection of all directory entities.
+
 ## etcd
 
+> etcd is a key/value pair service, its something like redis. Its reliable for building a simple name server to resolve the ip.
 
+- We will create a client service hiding the etcd db underneath it.
+- We are going to create our own external dependencies in this project. So this can be used in other projects.
+- So we need add `packaging` as jar.
