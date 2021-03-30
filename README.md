@@ -176,6 +176,30 @@ $ zkServer start
 
 - We can access the file this way
 
+### Running
+
+```sh
+> etcd # to run etcd on port 127.0.0.1:2379
+> java -jar target/communication-server-1.0-SNAPSHOT-jar-with-dependencies.jar 11436
+> java -jar target/communication-client-1.0-SNAPSHOT-jar-with-dependencies.jar
+```
+
+- Now when you type some value and press enter, then the client will connect to the server and finally print the result. The server will also print logs on it’s processing of the request
+  - Now bring down the server and start it with a different port. Note that the client will discover the details of the new service provider and connect to it automatically.
+
+<img src="3.png">
+
+- Now the service is location independent, but we have no way to change the host
+- All the application care about is the service name, failure transparent, location transparent and migration transparent.
+
+```sh
+etcdserver: name = default
+2017-02-28 10:24:18.711610 I | etcdserver: data dir = default.etcd
+2017-02-28 10:24:18.711613 I | etcdserver: member dir = default.etcd/member
+2017-02-28 10:24:18.711620 I | etcdserver: dedicated WAL dir = 000000000000-0000000
+```
+
+  
 ```sh
 # To put a Key,Value pair
 curl -L http://127.0.0.1:2379/v3/kv/put -X POST -d '{"key": "bXlLZXk=", "value": "bXlWYWx1ZQ=="}' # To get a Key,Value pair

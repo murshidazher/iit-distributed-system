@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+default.etcd/*
 
 # BlueJ files
 *.ctxt
