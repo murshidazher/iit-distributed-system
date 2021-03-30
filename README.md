@@ -168,3 +168,12 @@ $ zkServer start
 
 - Then etcd uses json so we use an eternal package to handle json dependencies.
 - etcd is just like zookeeper, it is a server and has a REST api.
+- We will create a name service like interface to register a service and get the namesapce.
+
+- We can access the file this way
+
+```sh
+# To put a Key,Value pair
+curl -L http://127.0.0.1:2379/v3/kv/put -X POST -d '{"key": "bXlLZXk=", "value": "bXlWYWx1ZQ=="}' # To get a Key,Value pair
+curl -L http://127.0.0.1:2379/v3/kv/range -X POST -d '{"key": "bXlLZXk="}'
+```
