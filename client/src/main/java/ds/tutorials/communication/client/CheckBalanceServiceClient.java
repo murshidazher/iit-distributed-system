@@ -3,62 +3,69 @@ package ds.tutorials.communication.client;
 import ds.tutorial.communication.grpc.generated.BalanceServiceGrpc;
 import ds.tutorial.communication.grpc.generated.CheckBalanceRequest;
 import ds.tutorial.communication.grpc.generated.CheckBalanceResponse;
+import ds.tutorials.name.service.client.NameServiceClient;
+import io.grpc.ConnectivityState;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CheckBalanceServiceClient {
-  private ManagedChannel channel = null;
-  BalanceServiceGrpc.BalanceServiceBlockingStub clientStub = null;
-  String host = null;
-  int port = -1;
+    public static final String NAME_SERVICE_ADDRESS = "http://localhost:2379";
 
-  public static void main(String[] args) throws InterruptedException { String host = null;
+    private ManagedChannel channel = null;
+    BalanceServiceGrpc.BalanceServiceBlockingStub clientStub = null;
+    String host = null;
     int port = -1;
-    if (args.length != 2) {
-      System.out.println("Usage CheckBalanceServiceClient <host> <port>");
-      System.exit(1);
-    }
-    host = args[0];
-    port = Integer.parseInt(args[1].trim());
-    // We create check balance service client using grpc
-    CheckBalanceServiceClient client = new CheckBalanceServiceClient(host,
-      port);
-    client.initializeConnection();
-    client.processUserRequests();
-    client.closeConnection();
-  }
-  public CheckBalanceServiceClient (String host, int port) { this.host = host;
-    this.port = port;
-  }
-  private void initializeConnection () {
-    System.out.println("Initializing Connecting to server at " + host + ":" +
-      port);
-    // we need to use ManagedChannelBuilder and create the connection
-    channel = ManagedChannelBuilder.forAddress("localhost", port)
-      .usePlaintext() // this uses plaintext else we can use keystore and encrypt the connection
-      .build(); // build the channel
-    clientStub = BalanceServiceGrpc.newBlockingStub(channel); // we use the client stub connected to the channel
-  }
-  private void closeConnection() {
-    channel.shutdown();
-  }
 
-  private void processUserRequests() throws InterruptedException {
-    while (true) {
-      Scanner userInput = new Scanner(System.in);
-      System.out.println("\nEnter Account ID to check the balance :");
-      String accountId = userInput.nextLine().trim();
-      System.out.println("Requesting server to check the account balance for " + accountId.toString());
-      CheckBalanceRequest request = CheckBalanceRequest
-        .newBuilder()
-        .setAccountId(accountId)
-        .build();
-      // blocking stub and we will get the response
-      CheckBalanceResponse response = clientStub.checkBalance(request);
-      System.out.printf("My balance is " + response.getBalance() + " LKR");
-      Thread.sleep(1000);
+    public static void main(String[] args) throws InterruptedException, IOException {
+      CheckBalanceServiceClient client = new CheckBalanceServiceClient();
+      client.initializeConnection();
+      client.processUserRequests();
+      client.closeConnection();
     }
-  }
+
+    public CheckBalanceServiceClient () throws InterruptedException, IOException {
+      fetchServerDetails();
+    }
+
+    private void fetchServerDetails() throws IOException, InterruptedException {
+      NameServiceClient client = new NameServiceClient(NAME_SERVICE_ADDRESS);
+      NameServiceClient.ServiceDetails serviceDetails = client.findService("CheckBalanceService");
+      host = serviceDetails.getIPAddress();
+      port = serviceDetails.getPort();
+    }
+
+    private void initializeConnection () {
+      System.out.println("Initializing Connecting to server at " + host + ":" + port);
+      channel = ManagedChannelBuilder.forAddress(host, port)
+        .usePlaintext()
+        .build(); clientStub =
+        BalanceServiceGrpc.newBlockingStub(channel);
+      channel.getState(true);
+    }
+
+    private void closeConnection() {
+      channel.shutdown();
+    }
+
+    private void processUserRequests() throws InterruptedException, IOException {
+      while (true) {
+        Scanner userInput = new Scanner(System.in); System.out.println("\nEnter Account ID to check the balance :");
+        String accountId = userInput.nextLine().trim(); System.out.println("Requesting server to check the account balance for " + accountId.toString());
+        CheckBalanceRequest request = CheckBalanceRequest.newBuilder().setAccountId(accountId).build();
+        ConnectivityState state = channel.getState(true);
+        while (state != ConnectivityState.READY) {
+          System.out.println("Service unavailable, looking for a service provider..");
+          fetchServerDetails();
+          initializeConnection();
+          Thread.sleep(5000);
+          state = channel.getState(true);
+        }
+        CheckBalanceResponse response = clientStub.checkBalance(request);
+        System.out.printf("My balance is " + response.getBalance() + " LKR");
+        Thread.sleep(1000);
+      }
+    }
 }

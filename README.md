@@ -169,6 +169,10 @@ $ zkServer start
 - Then etcd uses json so we use an eternal package to handle json dependencies.
 - etcd is just like zookeeper, it is a server and has a REST api.
 - We will create a name service like interface to register a service and get the namesapce.
+- Then build the project using `mvn clean install`
+- This will create the package in `.m2` location for local repository files.
+- Then register the `BankServer` in name service and get the port from outside.
+- After modifying the server, build the server after changing the code using `mvn clean install`
 
 - We can access the file this way
 
