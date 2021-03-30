@@ -187,7 +187,7 @@ $ zkServer start
 - Now when you type some value and press enter, then the client will connect to the server and finally print the result. The server will also print logs on it’s processing of the request
   - Now bring down the server and start it with a different port. Note that the client will discover the details of the new service provider and connect to it automatically.
 
-<img src="3.png">
+<img src="./docs/3.png">
 
 - Now the service is location independent, but we have no way to change the host
 - All the application care about is the service name, failure transparent, location transparent and migration transparent.
