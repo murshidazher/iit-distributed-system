@@ -165,3 +165,6 @@ $ zkServer start
 - We will create a client service hiding the etcd db underneath it.
 - We are going to create our own external dependencies in this project. So this can be used in other projects.
 - So we need add `packaging` as jar.
+
+- Then etcd uses json so we use an eternal package to handle json dependencies.
+- etcd is just like zookeeper, it is a server and has a REST api.
