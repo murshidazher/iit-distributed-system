@@ -29,6 +29,11 @@
         <artifactId>grpc-stub</artifactId>
         <version>1.36.0</version>
       </dependency>
+      <dependency>
+        <groupId>ds.tutorials</groupId>
+        <artifactId>name-service-client</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
     </dependencies>
 
     <build>
