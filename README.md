@@ -1,4 +1,4 @@
-# [java-distributed-system]()
+# [java-distributed-system](https://github.com/murshidazher/iit-distributed-system)
 
 Distributed system using
 - java
@@ -205,3 +205,8 @@ etcdserver: name = default
 curl -L http://127.0.0.1:2379/v3/kv/put -X POST -d '{"key": "bXlLZXk=", "value": "bXlWYWx1ZQ=="}' # To get a Key,Value pair
 curl -L http://127.0.0.1:2379/v3/kv/range -X POST -d '{"key": "bXlLZXk="}'
 ```
+
+## License
+
+[MIT](https://github.com/murshidazher/iit-distributed-system/blob/main/LICENSE) &copy; 2020 Murshid Azher.
+
