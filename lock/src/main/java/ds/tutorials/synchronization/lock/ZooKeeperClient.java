@@ -18,9 +18,10 @@ public class ZooKeeperClient {
   // We use these to create nodes
   // path, the data you need inside the node, who can access th file (we currently specify it as open), type of the node
   // type -> ephemeral / persistant etc..
-  public String createNode(String path, boolean shouldWatch, CreateMode mode) throws KeeperException,
+  // improve the createNode method to accept data as a parameter and save it in znode
+  public String createNode(String path, boolean shouldWatch, CreateMode mode, byte[] data) throws KeeperException,
     InterruptedException, UnsupportedEncodingException {
-    String createdPath = zooKeeper.create(path, "".getBytes("UTF-8"), ZooDefs.Ids.OPEN_ACL_UNSAFE, mode);
+    String createdPath = zooKeeper.create(path, data, ZooDefs.Ids.OPEN_ACL_UNSAFE, mode);
     return createdPath;
   }
 
@@ -36,7 +37,7 @@ public class ZooKeeperClient {
   }
 
   // znode (root path) get a list of child nodes attached to it and the resource is accessed based on this order
-  public List<String> getChildrenNodePaths (String root) throws KeeperException, InterruptedException {
+  public List<String> getChildrenNodePaths(String root) throws KeeperException, InterruptedException {
     zooKeeper.getState().toString();
     return zooKeeper.getChildren(root, false);
   }
@@ -44,5 +45,10 @@ public class ZooKeeperClient {
   // adding a watch will lookout for changes, watch true will call the callback when we create the zookeeper client
   public void addWatch(String path) throws KeeperException, InterruptedException {
     zooKeeper.exists(path, true);
+  }
+
+  // Also, add a method to to fetch the stored data
+  public byte[] getData(String path, boolean shouldWatch) throws KeeperException, InterruptedException {
+    return zooKeeper.getData(path, shouldWatch, null);
   }
 }

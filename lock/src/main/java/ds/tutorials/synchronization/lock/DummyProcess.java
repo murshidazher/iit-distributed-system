@@ -3,6 +3,7 @@ package ds.tutorials.synchronization.lock;
 import org.apache.zookeeper.KeeperException;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -15,7 +16,7 @@ public class DummyProcess {
   public static void main(String[] args) {
     DistributedLock.setZooKeeperURL(ZOOKEEPER_URL);
     try {
-      DistributedLock lock = new DistributedLock("myLock");
+      DistributedLock lock = new DistributedLock("myLock", "");
       lock.acquireLock();
       System.out.println("I Got the lock at " + getCurrentTimeStamp());
       accessSharedResource();
