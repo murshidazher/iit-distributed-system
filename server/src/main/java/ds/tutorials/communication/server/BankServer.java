@@ -7,6 +7,8 @@ import io.grpc.ServerBuilder;
 import org.apache.zookeeper.KeeperException;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class BankServer {
@@ -14,6 +16,7 @@ public class BankServer {
   private DistributedLock leaderLock;
   private AtomicBoolean isLeader = new AtomicBoolean(false);
   private byte[] leaderData;
+  private Map<String, Double> accounts = new HashMap();
 
   public BankServer(String host, int port) throws InterruptedException, IOException, KeeperException {
     this.serverPort = port;
@@ -26,15 +29,30 @@ public class BankServer {
     return builder.toString();
   }
 
-  public void startServer() throws IOException, InterruptedException {
+  private void tryToBeLeader() throws KeeperException, InterruptedException {
+    Thread leaderCampaignThread = new Thread(new LeaderCampaignThread());
+    leaderCampaignThread.start();
+  }
+
+  public void startServer() throws IOException, InterruptedException, KeeperException {
     Server server = ServerBuilder
       .forPort(serverPort)
-      .addService(new BalanceServiceImpl())
+      .addService(new BalanceServiceImpl(this))
       .build();
     server.start();
     System.out.println("BankServer Started and ready to accept requests on port " + serverPort);
+    tryToBeLeader();
 
     server.awaitTermination();
+  }
+
+  public void setAccountBalance(String accountId, double value) {
+    accounts.put(accountId, value);
+  }
+
+  public double getAccountBalance(String accountId) {
+    Double value = accounts.get(accountId);
+    return (value != null) ? value : 0.0;
   }
 
   // to check if the current server is the leader

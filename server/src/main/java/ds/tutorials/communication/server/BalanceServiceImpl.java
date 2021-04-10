@@ -7,6 +7,12 @@ import java.util.Random;
 
 public class BalanceServiceImpl extends BalanceServiceGrpc.BalanceServiceImplBase {
 
+  private BankServer server;
+
+  public BalanceServiceImpl(BankServer server){
+    this.server = server;
+  }
+
   @Override
   public void checkBalance(ds.tutorial.communication.grpc.generated.CheckBalanceRequest request,
                            io.grpc.stub.StreamObserver<ds.tutorial.communication.grpc.generated.CheckBalanceResponse> responseObserver) {
@@ -24,9 +30,10 @@ public class BalanceServiceImpl extends BalanceServiceGrpc.BalanceServiceImplBas
     responseObserver.onNext(response);
     responseObserver.onCompleted();
   }
+
   private double getAccountBalance(String accountId) {
     // your business logic goes here
     System.out.println("Checking balance for Account " + accountId);
-    return new Random().nextDouble() * 10000;
+    return server.getAccountBalance(accountId);
   }
 }
