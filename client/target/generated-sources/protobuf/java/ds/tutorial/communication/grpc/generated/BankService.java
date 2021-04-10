@@ -24,6 +24,16 @@ public final class BankService {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ds_tutorial_communication_grpc_generated_CheckBalanceResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ds_tutorial_communication_grpc_generated_SetBalanceRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ds_tutorial_communication_grpc_generated_SetBalanceRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ds_tutorial_communication_grpc_generated_SetBalanceResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ds_tutorial_communication_grpc_generated_SetBalanceResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -36,11 +46,19 @@ public final class BankService {
       "\n\021BankService.proto\022(ds.tutorial.communi" +
       "cation.grpc.generated\"(\n\023CheckBalanceReq" +
       "uest\022\021\n\taccountId\030\001 \001(\t\"\'\n\024CheckBalanceR" +
-      "esponse\022\017\n\007balance\030\001 \001(\0012\240\001\n\016BalanceServ" +
-      "ice\022\215\001\n\014checkBalance\022=.ds.tutorial.commu" +
-      "nication.grpc.generated.CheckBalanceRequ" +
-      "est\032>.ds.tutorial.communication.grpc.gen" +
-      "erated.CheckBalanceResponseB\002P\001b\006proto3"
+      "esponse\022\017\n\007balance\030\001 \001(\001\"N\n\021SetBalanceRe" +
+      "quest\022\021\n\taccountId\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\022" +
+      "\027\n\017isSentByPrimary\030\003 \001(\010\"$\n\022SetBalanceRe" +
+      "sponse\022\016\n\006status\030\001 \001(\0102\245\001\n\023CheckBalanceS" +
+      "ervice\022\215\001\n\014checkBalance\022=.ds.tutorial.co" +
+      "mmunication.grpc.generated.CheckBalanceR" +
+      "equest\032>.ds.tutorial.communication.grpc." +
+      "generated.CheckBalanceResponse2\235\001\n\021SetBa" +
+      "lanceService\022\207\001\n\nsetBalance\022;.ds.tutoria" +
+      "l.communication.grpc.generated.SetBalanc" +
+      "eRequest\032<.ds.tutorial.communication.grp" +
+      "c.generated.SetBalanceResponseB\002P\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -58,6 +76,18 @@ public final class BankService {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ds_tutorial_communication_grpc_generated_CheckBalanceResponse_descriptor,
         new java.lang.String[] { "Balance", });
+    internal_static_ds_tutorial_communication_grpc_generated_SetBalanceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_ds_tutorial_communication_grpc_generated_SetBalanceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ds_tutorial_communication_grpc_generated_SetBalanceRequest_descriptor,
+        new java.lang.String[] { "AccountId", "Value", "IsSentByPrimary", });
+    internal_static_ds_tutorial_communication_grpc_generated_SetBalanceResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_ds_tutorial_communication_grpc_generated_SetBalanceResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ds_tutorial_communication_grpc_generated_SetBalanceResponse_descriptor,
+        new java.lang.String[] { "Status", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

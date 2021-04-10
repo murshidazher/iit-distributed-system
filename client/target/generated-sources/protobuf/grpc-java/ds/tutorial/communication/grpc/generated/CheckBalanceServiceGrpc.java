@@ -7,11 +7,11 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.36.0)",
     comments = "Source: BankService.proto")
-public final class BalanceServiceGrpc {
+public final class CheckBalanceServiceGrpc {
 
-  private BalanceServiceGrpc() {}
+  private CheckBalanceServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "ds.tutorial.communication.grpc.generated.BalanceService";
+  public static final String SERVICE_NAME = "ds.tutorial.communication.grpc.generated.CheckBalanceService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<ds.tutorial.communication.grpc.generated.CheckBalanceRequest,
@@ -25,10 +25,10 @@ public final class BalanceServiceGrpc {
   public static io.grpc.MethodDescriptor<ds.tutorial.communication.grpc.generated.CheckBalanceRequest,
       ds.tutorial.communication.grpc.generated.CheckBalanceResponse> getCheckBalanceMethod() {
     io.grpc.MethodDescriptor<ds.tutorial.communication.grpc.generated.CheckBalanceRequest, ds.tutorial.communication.grpc.generated.CheckBalanceResponse> getCheckBalanceMethod;
-    if ((getCheckBalanceMethod = BalanceServiceGrpc.getCheckBalanceMethod) == null) {
-      synchronized (BalanceServiceGrpc.class) {
-        if ((getCheckBalanceMethod = BalanceServiceGrpc.getCheckBalanceMethod) == null) {
-          BalanceServiceGrpc.getCheckBalanceMethod = getCheckBalanceMethod =
+    if ((getCheckBalanceMethod = CheckBalanceServiceGrpc.getCheckBalanceMethod) == null) {
+      synchronized (CheckBalanceServiceGrpc.class) {
+        if ((getCheckBalanceMethod = CheckBalanceServiceGrpc.getCheckBalanceMethod) == null) {
+          CheckBalanceServiceGrpc.getCheckBalanceMethod = getCheckBalanceMethod =
               io.grpc.MethodDescriptor.<ds.tutorial.communication.grpc.generated.CheckBalanceRequest, ds.tutorial.communication.grpc.generated.CheckBalanceResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "checkBalance"))
@@ -37,7 +37,7 @@ public final class BalanceServiceGrpc {
                   ds.tutorial.communication.grpc.generated.CheckBalanceRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ds.tutorial.communication.grpc.generated.CheckBalanceResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new BalanceServiceMethodDescriptorSupplier("checkBalance"))
+              .setSchemaDescriptor(new CheckBalanceServiceMethodDescriptorSupplier("checkBalance"))
               .build();
         }
       }
@@ -48,50 +48,50 @@ public final class BalanceServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static BalanceServiceStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<BalanceServiceStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<BalanceServiceStub>() {
+  public static CheckBalanceServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<CheckBalanceServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CheckBalanceServiceStub>() {
         @java.lang.Override
-        public BalanceServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new BalanceServiceStub(channel, callOptions);
+        public CheckBalanceServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CheckBalanceServiceStub(channel, callOptions);
         }
       };
-    return BalanceServiceStub.newStub(factory, channel);
+    return CheckBalanceServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static BalanceServiceBlockingStub newBlockingStub(
+  public static CheckBalanceServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<BalanceServiceBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<BalanceServiceBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<CheckBalanceServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CheckBalanceServiceBlockingStub>() {
         @java.lang.Override
-        public BalanceServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new BalanceServiceBlockingStub(channel, callOptions);
+        public CheckBalanceServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CheckBalanceServiceBlockingStub(channel, callOptions);
         }
       };
-    return BalanceServiceBlockingStub.newStub(factory, channel);
+    return CheckBalanceServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static BalanceServiceFutureStub newFutureStub(
+  public static CheckBalanceServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<BalanceServiceFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<BalanceServiceFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<CheckBalanceServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CheckBalanceServiceFutureStub>() {
         @java.lang.Override
-        public BalanceServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new BalanceServiceFutureStub(channel, callOptions);
+        public CheckBalanceServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CheckBalanceServiceFutureStub(channel, callOptions);
         }
       };
-    return BalanceServiceFutureStub.newStub(factory, channel);
+    return CheckBalanceServiceFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class BalanceServiceImplBase implements io.grpc.BindableService {
+  public static abstract class CheckBalanceServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -115,16 +115,16 @@ public final class BalanceServiceGrpc {
 
   /**
    */
-  public static final class BalanceServiceStub extends io.grpc.stub.AbstractAsyncStub<BalanceServiceStub> {
-    private BalanceServiceStub(
+  public static final class CheckBalanceServiceStub extends io.grpc.stub.AbstractAsyncStub<CheckBalanceServiceStub> {
+    private CheckBalanceServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected BalanceServiceStub build(
+    protected CheckBalanceServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new BalanceServiceStub(channel, callOptions);
+      return new CheckBalanceServiceStub(channel, callOptions);
     }
 
     /**
@@ -138,16 +138,16 @@ public final class BalanceServiceGrpc {
 
   /**
    */
-  public static final class BalanceServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<BalanceServiceBlockingStub> {
-    private BalanceServiceBlockingStub(
+  public static final class CheckBalanceServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<CheckBalanceServiceBlockingStub> {
+    private CheckBalanceServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected BalanceServiceBlockingStub build(
+    protected CheckBalanceServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new BalanceServiceBlockingStub(channel, callOptions);
+      return new CheckBalanceServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -160,16 +160,16 @@ public final class BalanceServiceGrpc {
 
   /**
    */
-  public static final class BalanceServiceFutureStub extends io.grpc.stub.AbstractFutureStub<BalanceServiceFutureStub> {
-    private BalanceServiceFutureStub(
+  public static final class CheckBalanceServiceFutureStub extends io.grpc.stub.AbstractFutureStub<CheckBalanceServiceFutureStub> {
+    private CheckBalanceServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected BalanceServiceFutureStub build(
+    protected CheckBalanceServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new BalanceServiceFutureStub(channel, callOptions);
+      return new CheckBalanceServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -188,10 +188,10 @@ public final class BalanceServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final BalanceServiceImplBase serviceImpl;
+    private final CheckBalanceServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(BalanceServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(CheckBalanceServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -220,9 +220,9 @@ public final class BalanceServiceGrpc {
     }
   }
 
-  private static abstract class BalanceServiceBaseDescriptorSupplier
+  private static abstract class CheckBalanceServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    BalanceServiceBaseDescriptorSupplier() {}
+    CheckBalanceServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -231,21 +231,21 @@ public final class BalanceServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("BalanceService");
+      return getFileDescriptor().findServiceByName("CheckBalanceService");
     }
   }
 
-  private static final class BalanceServiceFileDescriptorSupplier
-      extends BalanceServiceBaseDescriptorSupplier {
-    BalanceServiceFileDescriptorSupplier() {}
+  private static final class CheckBalanceServiceFileDescriptorSupplier
+      extends CheckBalanceServiceBaseDescriptorSupplier {
+    CheckBalanceServiceFileDescriptorSupplier() {}
   }
 
-  private static final class BalanceServiceMethodDescriptorSupplier
-      extends BalanceServiceBaseDescriptorSupplier
+  private static final class CheckBalanceServiceMethodDescriptorSupplier
+      extends CheckBalanceServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    BalanceServiceMethodDescriptorSupplier(String methodName) {
+    CheckBalanceServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -260,11 +260,11 @@ public final class BalanceServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (BalanceServiceGrpc.class) {
+      synchronized (CheckBalanceServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new BalanceServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new CheckBalanceServiceFileDescriptorSupplier())
               .addMethod(getCheckBalanceMethod())
               .build();
         }
