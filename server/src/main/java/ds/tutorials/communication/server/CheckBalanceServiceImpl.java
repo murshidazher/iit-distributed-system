@@ -5,11 +5,11 @@ import ds.tutorial.communication.grpc.generated.CheckBalanceResponse;
 
 import java.util.Random;
 
-public class BalanceServiceImpl extends BalanceServiceGrpc.BalanceServiceImplBase {
+public class CheckBalanceServiceImpl extends BalanceServiceGrpc.BalanceServiceImplBase {
 
   private BankServer server;
 
-  public BalanceServiceImpl(BankServer server){
+  public CheckBalanceServiceImpl(BankServer server){
     this.server = server;
   }
 

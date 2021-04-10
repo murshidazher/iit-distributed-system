@@ -1,6 +1,5 @@
 package ds.tutorials.communication.server;
 
-import ds.tutorials.name.service.client.NameServiceClient;
 import ds.tutorials.synchronization.lock.DistributedLock;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -39,7 +38,7 @@ public class BankServer {
   public void startServer() throws IOException, InterruptedException, KeeperException {
     Server server = ServerBuilder
       .forPort(serverPort)
-      .addService(new BalanceServiceImpl(this))
+      .addService(new CheckBalanceServiceImpl(this))
       .build();
     server.start();
     System.out.println("BankServer Started and ready to accept requests on port " + serverPort);
