@@ -7,7 +7,9 @@ import io.grpc.ServerBuilder;
 import org.apache.zookeeper.KeeperException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -44,6 +46,21 @@ public class BankServer {
     tryToBeLeader();
 
     server.awaitTermination();
+  }
+
+  public synchronized String[] getCurrentLeaderData() {
+    return new String(leaderData).split(":");
+  }
+
+  public List<String[]> getOthersData() throws KeeperException, InterruptedException {
+    List<String[]> result = new ArrayList<>();
+    List<byte[]> othersData = leaderLock.getOthersData();
+    for (byte[] data : othersData) {
+      String[] dataStrings = new
+        String(data).split(":");
+      result.add(dataStrings);
+    }
+    return result;
   }
 
   public void setAccountBalance(String accountId, double value) {
