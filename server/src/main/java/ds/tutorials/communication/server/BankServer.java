@@ -39,6 +39,7 @@ public class BankServer {
     Server server = ServerBuilder
       .forPort(serverPort)
       .addService(new CheckBalanceServiceImpl(this))
+      .addService(new SetBalanceServiceImpl(this))
       .build();
     server.start();
     System.out.println("BankServer Started and ready to accept requests on port " + serverPort);
