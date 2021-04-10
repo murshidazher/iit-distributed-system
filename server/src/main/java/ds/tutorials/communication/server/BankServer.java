@@ -38,7 +38,7 @@ public class BankServer {
   public void startServer() throws IOException, InterruptedException, KeeperException {
     Server server = ServerBuilder
       .forPort(serverPort)
-      .addService(new CheckBalanceServiceImpl(this))
+      .addService(new CheckBalanceServiceImpl(this)) // host both checkbalance and setbalance services
       .addService(new SetBalanceServiceImpl(this))
       .build();
     server.start();

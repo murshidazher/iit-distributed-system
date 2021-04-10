@@ -18,6 +18,7 @@ public class SetBalanceServiceImpl extends SetBalanceServiceGrpc.SetBalanceServi
     this.server = server;
   }
 
+  // this is not a read operation but a write operation so we need to be consistent
   @Override
   public void
   setBalance(ds.tutorial.communication.grpc.generated.SetBalanceRequest request,
@@ -27,6 +28,8 @@ public class SetBalanceServiceImpl extends SetBalanceServiceGrpc.SetBalanceServi
     boolean status = false;
     if (server.isLeader()) {
       // Act as primary
+      // if you are leader you need to check the other, you can update it
+      // then notify all the secondary servers
       try {
         System.out.println("Updating account balance as Primary");
         updateBalance(accountId, value);
@@ -38,12 +41,15 @@ public class SetBalanceServiceImpl extends SetBalanceServiceGrpc.SetBalanceServi
       }
     } else {
       // Act As Secondary
+
       if (request.getIsSentByPrimary()) {
+        // the leader can send the secondary service a request to update it balance
         System.out.println("Updating account balance on secondary, on Primary 's command");
         updateBalance(accountId, value);
       } else {
-        SetBalanceResponse response =
-          callPrimary(accountId, value);
+        // if the client call the secondary service, we route it to the primary server.
+        // we will update if the request was acknowledged.
+        SetBalanceResponse response = callPrimary(accountId, value);
         if (response.getStatus()) {
           status = true;
         }
