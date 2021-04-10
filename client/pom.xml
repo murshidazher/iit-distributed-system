@@ -75,7 +75,7 @@
             </descriptorRefs>
             <archive>
               <manifest>
-                <mainClass>ds.tutorials.communication.client.CheckBalanceServiceClient</mainClass>
+                <mainClass>ds.tutorials.communication.client.MainClass</mainClass>
               </manifest>
             </archive>
           </configuration>

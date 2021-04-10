@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="434d6e27-295d-4ec2-a461-bc6432647503" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/BankService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/BankService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/ds/tutorials/communication/server/CheckBalanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/ds/tutorials/communication/server/CheckBalanceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/resources/BankService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/resources/BankService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/BankService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/BankService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/generated-sources/protobuf/grpc-java/ds/tutorial/communication/grpc/generated/BalanceServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/BankService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -37,10 +42,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/ds/tutorials/communication/client" />
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/ds/tutorials/communication/client" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
