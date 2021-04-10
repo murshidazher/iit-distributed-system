@@ -49,15 +49,16 @@ public final class BankService {
       "esponse\022\017\n\007balance\030\001 \001(\001\"N\n\021SetBalanceRe" +
       "quest\022\021\n\taccountId\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\022" +
       "\027\n\017isSentByPrimary\030\003 \001(\010\"$\n\022SetBalanceRe" +
-      "sponse\022\016\n\006status\030\001 \001(\0102\240\001\n\016BalanceServic" +
-      "e\022\215\001\n\014checkBalance\022=.ds.tutorial.communi" +
-      "cation.grpc.generated.CheckBalanceReques" +
-      "t\032>.ds.tutorial.communication.grpc.gener" +
-      "ated.CheckBalanceResponse2\235\001\n\021SetBalance" +
-      "Service\022\207\001\n\nsetBalance\022;.ds.tutorial.com" +
-      "munication.grpc.generated.SetBalanceRequ" +
-      "est\032<.ds.tutorial.communication.grpc.gen" +
-      "erated.SetBalanceResponseB\002P\001b\006proto3"
+      "sponse\022\016\n\006status\030\001 \001(\0102\245\001\n\023CheckBalanceS" +
+      "ervice\022\215\001\n\014checkBalance\022=.ds.tutorial.co" +
+      "mmunication.grpc.generated.CheckBalanceR" +
+      "equest\032>.ds.tutorial.communication.grpc." +
+      "generated.CheckBalanceResponse2\235\001\n\021SetBa" +
+      "lanceService\022\207\001\n\nsetBalance\022;.ds.tutoria" +
+      "l.communication.grpc.generated.SetBalanc" +
+      "eRequest\032<.ds.tutorial.communication.grp" +
+      "c.generated.SetBalanceResponseB\002P\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

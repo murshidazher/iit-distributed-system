@@ -8,7 +8,7 @@ message CheckBalanceRequest {string accountId = 1;}
 
 message CheckBalanceResponse {double balance = 1;}
 
-service BalanceService {
+service CheckBalanceService {
   rpc checkBalance(CheckBalanceRequest) returns (CheckBalanceResponse);
 }
 

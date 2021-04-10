@@ -206,6 +206,44 @@ curl -L http://127.0.0.1:2379/v3/kv/put -X POST -d '{"key": "bXlLZXk=", "value":
 curl -L http://127.0.0.1:2379/v3/kv/range -X POST -d '{"key": "bXlLZXk="}'
 ```
 
+## Consistency in Distributed Systems
+
+- We would improve the lock such that we allow to acquire lock in a non-blocking manner.
+- We will try to keep the maps `private Map<String, Double> accounts = new HashMap()` of different processes consistent.
+- This is like a replicated data store, an we will try to keep them all consistent.
+- Then create a `setBalanceService` in proto and generate the service.
+- If the setBalanceService is the primary then it will communicate with all other service else it will fetch from the leader data.
+- Build the proto to generate the stubs
+- Download the client.zip and build and use the following command to connect to
+the server
+  - Pass `s` to set the balance and `c` to check the balance
+  - Enter input as account-id,value to set the balance (e.g., abc,100)
+  - Enter just the account-id to get the balance
+
+```sh
+> java -jar target/communication-client-1.0-SNAPSHOT-jar-with-dependencies.jar localhost 11436 s
+```
+
+### Client calling the Primary Server for Set
+
+- Start the zookeeper server `zkServer start`
+- Directly acknowledged by the primary server.
+
+<img src="./docs/4.png">
+
+### Client calling the Secondary Server for Set
+
+- The request will first sent to the primary server and then propagated by the primary to all secondary server for sequential.
+- This will make sure that all the servers are consistent.
+
+<img src="./docs/5.png">
+
+### Client calling the Secondary Server for Read
+
+- The read request will only be acknowledge by one server.
+
+<img src="./docs/6.png">
+
 ## License
 
 [MIT](https://github.com/murshidazher/iit-distributed-system/blob/main/LICENSE) &copy; 2020 Murshid Azher.

@@ -1,12 +1,13 @@
+/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/src/main/java/ds/tutorials/communication/server/SetBalanceServiceImpl.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/CheckBalanceRequestOrBuilder.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/SetBalanceRequest.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/SetBalanceResponseOrBuilder.java
+/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/grpc-java/ds/tutorial/communication/grpc/generated/CheckBalanceServiceGrpc.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/CheckBalanceResponseOrBuilder.java
+/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/src/main/java/ds/tutorials/communication/server/CheckBalanceServiceImpl.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/SetBalanceResponse.java
-/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/src/main/java/ds/tutorials/communication/server/BalanceServiceImpl.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/BankService.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/CheckBalanceResponse.java
-/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/grpc-java/ds/tutorial/communication/grpc/generated/BalanceServiceGrpc.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/src/main/java/ds/tutorials/communication/server/BankServer.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/SetBalanceRequestOrBuilder.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/server/target/generated-sources/protobuf/grpc-java/ds/tutorial/communication/grpc/generated/SetBalanceServiceGrpc.java

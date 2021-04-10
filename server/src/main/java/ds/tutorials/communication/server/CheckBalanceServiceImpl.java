@@ -1,11 +1,11 @@
 package ds.tutorials.communication.server;
 
-import ds.tutorial.communication.grpc.generated.BalanceServiceGrpc;
+import ds.tutorial.communication.grpc.generated.CheckBalanceServiceGrpc;
 import ds.tutorial.communication.grpc.generated.CheckBalanceResponse;
 
 import java.util.Random;
 
-public class CheckBalanceServiceImpl extends BalanceServiceGrpc.BalanceServiceImplBase {
+public class CheckBalanceServiceImpl extends CheckBalanceServiceGrpc.CheckBalanceServiceImplBase {
 
   private BankServer server;
 
