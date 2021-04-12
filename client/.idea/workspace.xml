@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="434d6e27-295d-4ec2-a461-bc6432647503" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/ds/tutorials/communication/server/CheckBalanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/ds/tutorials/communication/server/CheckBalanceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/resources/BankService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/resources/BankService.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/classes/BankService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/BankService.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/generated-sources/protobuf/grpc-java/ds/tutorial/communication/grpc/generated/BalanceServiceGrpc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/generated-sources/protobuf/java/ds/tutorial/communication/grpc/generated/BankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="434d6e27-295d-4ec2-a461-bc6432647503" name="Default Changelist" comment="# 50-character subject line&#10;#&#10;# 72-character wrapped longer description body.&#10;#&#10;# This should answer:&#10;#&#10;# - Why was this change necessary?&#10;# - How does it address the problem?&#10;# - Are there any side effects?&#10;#&#10;# Include a link to the ticket, if any.&#10;#&#10;# Add co-authors if you worked on this code with others:&#10;#&#10;# Co-authored-by: Full Name &lt;email@example.com&gt;&#10;# Co-authored-by: Full Name &lt;email@example.com&gt;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
