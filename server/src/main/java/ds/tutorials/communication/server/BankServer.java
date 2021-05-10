@@ -1,6 +1,9 @@
 package ds.tutorials.communication.server;
 
 import ds.tutorials.synchronization.lock.DistributedLock;
+import ds.tutorials.synchronization.lock.tx.DistributedTx;
+import ds.tutorials.synchronization.lock.tx.DistributedTxCoordinator;
+import ds.tutorials.synchronization.lock.tx.DistributedTxParticipant;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import org.apache.zookeeper.KeeperException;
@@ -19,9 +22,20 @@ public class BankServer {
   private byte[] leaderData;
   private Map<String, Double> accounts = new HashMap();
 
+  DistributedTx transaction;
+  SetBalanceServiceImpl setBalanceService;
+  CheckBalanceServiceImpl checkBalanceService;
+
   public BankServer(String host, int port) throws InterruptedException, IOException, KeeperException {
     this.serverPort = port;
-    leaderLock = new DistributedLock("BankServerTestCluster", buildServerData(host, port));
+    leaderLock = new DistributedLock("BankServerCluster", buildServerData(host, port));
+    setBalanceService = new SetBalanceServiceImpl(this);
+    checkBalanceService = new CheckBalanceServiceImpl(this);
+    transaction = new DistributedTxParticipant(setBalanceService);
+  }
+
+  public DistributedTx getTransaction() {
+    return transaction;
   }
 
   public static String buildServerData(String IP, int port) {
@@ -38,8 +52,8 @@ public class BankServer {
   public void startServer() throws IOException, InterruptedException, KeeperException {
     Server server = ServerBuilder
       .forPort(serverPort)
-      .addService(new CheckBalanceServiceImpl(this)) // host both checkbalance and setbalance services
-      .addService(new SetBalanceServiceImpl(this))
+      .addService(checkBalanceService) // host both checkbalance and setbalance services
+      .addService(setBalanceService)
       .build();
     server.start();
     System.out.println("BankServer Started and ready to accept requests on port " + serverPort);
@@ -89,9 +103,18 @@ public class BankServer {
 
     int serverPort = Integer.parseInt(args[0]);
     DistributedLock.setZooKeeperURL("localhost:2181");
+    DistributedTx.setZooKeeperURL("localhost:2181");
 
     BankServer server = new BankServer("localhost", serverPort);
     server.startServer();
+
+  }
+
+  // actions to take when its the leader
+  private void beTheLeader() {
+    System.out.println("I got the leader lock. Now actingas primary");
+    isLeader.set(true);
+    transaction = new DistributedTxCoordinator(setBalanceService);
   }
 
   //  A separate thread implementation which continuously tries to acquire the lock.
@@ -114,9 +137,8 @@ public class BankServer {
           Thread.sleep(10000);
           leader = leaderLock.tryAcquireLock();
         }
-        System.out.println("I got the leader lock. Now acting as primary");
-        isLeader.set(true);
         currentLeaderData = null;
+        beTheLeader();
       } catch (Exception e) {
         // throw the exception
       }

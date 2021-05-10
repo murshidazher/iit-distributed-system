@@ -116,8 +116,8 @@ ZooKeeper client API.
 
 ### Creating a Distributed Lock
 
-- For a given resource there should be a lock, this is represented by a `persistent` znode. This is persistent because the lock needs too be there regardless of whether the some access it or not.
-- zookeeper is like a centralized algorithm. If any process needs to get the resourse the process create a chid node under the znode (lock). This node is of type `ephimeral sequential`. There is no point of keeping the child node if the process is not there.
+- For a given resource there should be a lock, this is represented by a `persistent` znode. This is persistent because the lock needs to be there regardless of whether the some access it or not.
+- zookeeper is like a centralized algorithm. If any process needs to get the resource the process create a chid node under the znode (lock). This node is of type `ephimeral sequential`. There is no point of keeping the child node if the process is not there.
 - The lock is distributed to the child nodes by the least sequence number.
 
 This class implements a distributed lock using znodes in ZooKeeper. The logic of this
@@ -261,6 +261,12 @@ Given a process it can be either a coordinator or secondary,
 - `DistributedTxListner` - This will facilitate sending the final decision by coordinator to the applications. The bank servers
 service implementations will have to use this interface to listen to the verdict by the coordinator. Needed to communicate the decision to all the listeners for `setBalance`.
 - We implement the `Watcher` because we need to know what is written to the root node.
+
+### Make SetBalance compliance with Two-Phase Commit
+
+- Make `SetBalanceServiceImpl` implement the `DistributedTxListener` class, so that we make it compliant with the two-phase commit protocol. This will allow the set balance service to know the status of global commit or about so that I can decide if it should locally commit or abort the transaction.
+- Then we will make sure that the bank server initiates a distributed transaction.
+- When starting initially, its assumed that everyone is a `participant` and only when an instance acquires the leader lock its the `coordinator`.
 
 ## License
 

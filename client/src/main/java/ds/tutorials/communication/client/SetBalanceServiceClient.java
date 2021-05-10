@@ -44,7 +44,7 @@ public class SetBalanceServiceClient {
                     .setIsSentByPrimary(false)
                     .build();
             SetBalanceResponse response = clientStub.setBalance(request);
-            System.out.printf("Transaction Status " + (response.getStatus() ? "Sucessful" : "Failed"));
+            System.out.printf("Transaction Status " + (response.getStatus() ? "Successful" : "Failed"));
             Thread.sleep(1000);
         }
     }
