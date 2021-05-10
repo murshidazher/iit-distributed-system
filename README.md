@@ -245,6 +245,23 @@ the server
 
 <img src="./docs/6.png">
 
+## Fault tolerance in Distributed System - Distributed Consensus and Two Phase Commits
+
+- Kafka uses zookeeper for distributed consensus
+- Previous implementation of the lock would be changed to accept into voting process
+- Coordinator will send a `GLOBAL_ABORT` or `GLOBAL_COMMIT` to root node, hence all children will get the final verdict by watching the rootnote.
+- We need to `write` and `forceDelete` method to add to the `cnode`, so when the transaction is done we need to delete it. 
+
+### Implementing the Logic for Two-Phase Commit
+
+Given a process it can be either a coordinator or secondary,
+
+- Coordinator : Create root node, check the votes of secondary nodes and give the verdict (global commit or global abort) `DistributedTxCoordinator`. ``
+- Secondary: Create a child node, vote for commit or abort and react to the verdict of the coordinator. `DistributedTxParticipant`
+- `DistributedTxListner` - This will facilitate sending the final decision by coordinator to the applications. The bank servers
+service implementations will have to use this interface to listen to the verdict by the coordinator. Needed to communicate the decision to all the listeners for `setBalance`.
+- We implement the `Watcher` because we need to know what is written to the root node.
+
 ## License
 
 [MIT](https://github.com/murshidazher/iit-distributed-system/blob/main/LICENSE) &copy; 2020 Murshid Azher.

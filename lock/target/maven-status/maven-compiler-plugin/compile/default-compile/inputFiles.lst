@@ -1,3 +1,7 @@
+/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/lock/src/main/java/ds/tutorials/synchronization/lock/tx/DistributedTxCoordinator.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/lock/src/main/java/ds/tutorials/synchronization/lock/ZooKeeperClient.java
+/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/lock/src/main/java/ds/tutorials/synchronization/lock/tx/DistributedTx.java
+/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/lock/src/main/java/ds/tutorials/synchronization/lock/tx/DistributedTxParticipant.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/lock/src/main/java/ds/tutorials/synchronization/lock/DummyProcess.java
 /Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/lock/src/main/java/ds/tutorials/synchronization/lock/DistributedLock.java
+/Users/murshidazher/dev/java/IdeaProjects/iit-distributed-system/lock/src/main/java/ds/tutorials/synchronization/lock/tx/DistributedTxListener.java

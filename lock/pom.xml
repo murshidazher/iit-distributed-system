@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ds.tutorials</groupId>
-    <artifactId>synchronization-lock</artifactId>
-    <version>2.0.0</version>
+    <artifactId>synchronization-distiruted-lock</artifactId>
+    <version>3.0.0</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

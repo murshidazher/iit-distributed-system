@@ -1,3 +1,7 @@
 ds/tutorials/synchronization/lock/DummyProcess.class
+ds/tutorials/synchronization/lock/tx/DistributedTxListener.class
 ds/tutorials/synchronization/lock/ZooKeeperClient.class
 ds/tutorials/synchronization/lock/DistributedLock.class
+ds/tutorials/synchronization/lock/tx/DistributedTxParticipant.class
+ds/tutorials/synchronization/lock/tx/DistributedTxCoordinator.class
+ds/tutorials/synchronization/lock/tx/DistributedTx.class

@@ -51,4 +51,14 @@ public class ZooKeeperClient {
   public byte[] getData(String path, boolean shouldWatch) throws KeeperException, InterruptedException {
     return zooKeeper.getData(path, shouldWatch, null);
   }
+
+  // write the transaction
+  public void write(String path, byte[] data) throws KeeperException, InterruptedException {
+    zooKeeper.setData(path, data, -1);
+  }
+
+  // delete the children and the root after each transaction
+  public void forceDelete(String path) throws KeeperException, InterruptedException {
+    ZKUtil.deleteRecursive(zooKeeper, path);
+  }
 }

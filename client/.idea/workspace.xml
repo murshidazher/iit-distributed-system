@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="434d6e27-295d-4ec2-a461-bc6432647503" name="Default Changelist" comment="# 50-character subject line&#10;#&#10;# 72-character wrapped longer description body.&#10;#&#10;# This should answer:&#10;#&#10;# - Why was this change necessary?&#10;# - How does it address the problem?&#10;# - Are there any side effects?&#10;#&#10;# Include a link to the ticket, if any.&#10;#&#10;# Add co-authors if you worked on this code with others:&#10;#&#10;# Co-authored-by: Full Name &lt;email@example.com&gt;&#10;# Co-authored-by: Full Name &lt;email@example.com&gt;" />
+    <list default="true" id="434d6e27-295d-4ec2-a461-bc6432647503" name="Default Changelist" comment="# 50-character subject line&#10;#&#10;# 72-character wrapped longer description body.&#10;#&#10;# This should answer:&#10;#&#10;# - Why was this change necessary?&#10;# - How does it address the problem?&#10;# - Are there any side effects?&#10;#&#10;# Include a link to the ticket, if any.&#10;#&#10;# Add co-authors if you worked on this code with others:&#10;#&#10;# Co-authored-by: Full Name &lt;email@example.com&gt;&#10;# Co-authored-by: Full Name &lt;email@example.com&gt;">
+      <change afterPath="$PROJECT_DIR$/../lock/src/main/java/ds/tutorials/synchronization/lock/tx/DistributedTx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lock/src/main/java/ds/tutorials/synchronization/lock/tx/DistributedTxCoordinator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lock/src/main/java/ds/tutorials/synchronization/lock/tx/DistributedTxListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lock/src/main/java/ds/tutorials/synchronization/lock/tx/DistributedTxParticipant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lock/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lock/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lock/src/main/java/ds/tutorials/synchronization/lock/ZooKeeperClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lock/src/main/java/ds/tutorials/synchronization/lock/ZooKeeperClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lock/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lock/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lock/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../lock/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lock/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../lock/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/maven-archiver/pom.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +43,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/ds/tutorials/communication/client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
